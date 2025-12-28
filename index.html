@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TO MY LOVE🩷</title>
+    <meta name="language" content="Love">
+    <meta name="github" content="https://github.com/AfganCandra13/Love.content">
+    <meta name="describe" content=" Belajar membuat animasi love  ">
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
+
+    <style>
+        html,
+        body {
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .namebox {
+            color: #ff5ba5;
+            position: absolute;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
+
+        .namebox h1 {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas-matrix" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
+    <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas"></canvas>
+
+    <div class="overlay">
+        <div class="tabs">
+            <div class="tabs-labels">
+                <span class="tabs-label">Commands</span>
+                <span class="tabs-label">Info</span>
+                <span class="tabs-label">Share</span>
+            </div>
+            <div class="tabs-panels">
+                <ul class="tabs-panel commands"></ul>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="pinkboard" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
+
+    <script src="js/index.js"></script>
+    <script src="js/heart.js"></script>
+    <script src="js/matrix.js"></script>
+
+    <div class="namebox" style="opacity: 0;">
+        <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">Love you&#10084;&#65039;MINEE❤️</h1>
+    </div>
+
+    <!-- AUDIO AUTOPLAY -->
+    <audio id="bgm"
+        src="https://raw.githubusercontent.com/AfganCandra13/Love.content/main/mixkit-beautiful-dream-493.mp3"
+        autoplay
+        loop
+        muted>
+    </audio>
+
+    <!-- TOMBOL PLAY/PAUSE -->
+    <button id="musicToggle" style="
+        position:fixed;
+        bottom:10px;
+        right:10px;
+        z-index:99999;
+        background:rgba(255,255,255,0.15);
+        border:none;
+        color:#fff;
+        padding:6px 12px;
+        border-radius:8px;
+        font-size:12px;
+        backdrop-filter:blur(4px);
+        cursor:pointer;">
+        Play/Pause
+    </button>
+
+    <script>
+        const bgm = document.getElementById('bgm');
+        const toggleBtn = document.getElementById('musicToggle');
+
+        // PLAY/PAUSE tombol
+        toggleBtn.onclick = () => {
+            if (bgm.paused) bgm.play();
+            else bgm.pause();
+        };
+
+        // AUTOPLAY FIX (muted → unmute)
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                bgm.muted = false;
+                bgm.play().catch(() => {
+                    console.log("Browser memblokir autoplay, musik akan jalan saat user menyentuh layar.");
+                });
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
