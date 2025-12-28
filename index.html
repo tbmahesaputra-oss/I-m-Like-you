@@ -1,7 +1,93 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html><html lang="id">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Nayla 🌸</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  height:100vh;
+  background:linear-gradient(135deg,#ffd6e8,#cbb4ff,#b5e3ff);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;color:#5a2a6c
+}.card{ background:rgba(255,255,255,.75); backdrop-filter:blur(12px); border-radius:30px; padding:35px 30px; width:90%;max-width:420px; box-shadow:0 25px 60px rgba(0,0,0,.2); animation:fadeUp 1.2s ease }
+
+.progress{ height:8px; background:#f0e6ff; border-radius:20px; overflow:hidden; margin-bottom:18px } .progress div{ height:100%;width:30%; background:linear-gradient(90deg,#ff8acb,#b48bff); transition:.6s ease }
+
+h1{font-size:24px;margin-bottom:14px;text-align:center} p{ font-size:15px;line-height:1.7;min-height:140px; text-align:center }
+
+button{ margin-top:26px;width:100%; border:none;padding:14px; border-radius:50px; font-size:16px;cursor:pointer; background:linear-gradient(135deg,#ff8acb,#b48bff); color:white;box-shadow:0 10px 25px rgba(180,139,255,.5) }
+
+.btn-group{position:relative;height:60px;margin-top:22px} .no{ position:absolute; background:#fff; color:#ff7abf; box-shadow:0 8px 20px rgba(0,0,0,.15) }
+
+.result{text-align:center;margin-top:18px;display:none;font-size:16px}
+
+.heart{position:absolute;bottom:-30px;font-size:20px;animation:float 6s infinite}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}} @keyframes float{to{transform:translateY(-120vh) scale(1.4);opacity:0}} </style>
+
+</head>
+<body><audio id="bgm" loop>
+  <source src="https://files.catbox.moe/zxtv3t.m4a" type="audio/mp4">
+</audio><div class="card">
+  <div class="progress"><div id="bar"></div></div>  <!-- PAGE 1 YAPPING -->  <div id="page1">
+    <h1>Nayla, bentar ya 🌸</h1>
+    <p id="typing1"></p>
+    <button onclick="nextPage()">Lanjut pelan‑pelan ➜</button>
+  </div>  <!-- PAGE 2 INTI -->  <div id="page2" style="display:none">
+    <h1>Ini dari aku 💕</h1>
+    <p id="typing2"></p><div class="btn-group">
+  <button onclick="sendToOwner()">Iyaaa 💖</button>
+  <button class="no" id="noBtn">Enggaaa 😝</button>
+</div>
+
+<div class="result" id="result">Jawaban Nayla udah aku terima 🥰</div>
+
+  </div>
+</div><script>
+const OWNER_NUMBER="628xxxxxxxxx";
+
+const text1=
+"Nayla… aku tau ini agak panjang, tapi aku harap kamu mau baca sampai habis ya. Aku cuma mau jujur sedikit. Setiap hari, ada momen kecil yang bikin aku keinget kamu. Entah itu lagu random, atau hal sepele yang tiba‑tiba bikin senyum sendiri. Aku gak jago ngomong langsung, jadi aku bikin halaman kecil ini khusus buat kamu. Gak ada maksud maksa, aku cuma pengen Nayla tau perasaan aku yang sebenernya 🌸";
+
+const text2=
+"Aku suka sama Nayla. Bukan cuma sekadar rasa lewat, tapi rasa yang pengen dijagain. Jadi sekarang aku mau tanya jujur… Nayla mau gak jadi pacar aku? 💕";
+
+let i=0,j=0;
+const t1=document.getElementById('typing1');
+const t2=document.getElementById('typing2');
+
+function type1(){if(i<text1.length){t1.innerHTML+=text1[i++];setTimeout(type1,35)}}
+function type2(){if(j<text2.length){t2.innerHTML+=text2[j++];setTimeout(type2,40)}}
+
+type1();
+
+function nextPage(){
+  document.getElementById('page1').style.display='none';
+  document.getElementById('page2').style.display='block';
+  document.getElementById('bar').style.width='100%';
+  document.getElementById('bgm').play();
+  type2();
+}
+
+const noBtn=document.getElementById('noBtn');
+noBtn.addEventListener('mouseover',move);
+noBtn.addEventListener('click',move);
+function move(){
+  noBtn.style.transform=`translate(${Math.random()*160-80}px,${Math.random()*90-45}px)`
+}
+
+function sendToOwner(){
+  const msg=encodeURIComponent("Aku jawab dari web ini ya… Nayla mau kok jadi pacar kamu 💖🥰");
+  const url=`https://wa.me/${OWNER_NUMBER}?text=${msg}`;
+  document.getElementById('result').style.display='block';
+  for(let k=0;k<18;k++){
+    const h=document.createElement('div');h.className='heart';h.innerHTML='💗';h.style.left=Math.random()*100+'vw';document.body.appendChild(h);setTimeout(()=>h.remove(),6000)
+  }
+  setTimeout(()=>window.open(url,'_blank'),700)
+}
+</script></body>
+</html><head>
     <meta charset="utf-8">
     <title>TO MY LOVE🩷</title>
     <meta name="language" content="Love">
